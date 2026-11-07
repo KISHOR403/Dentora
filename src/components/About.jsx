@@ -156,7 +156,10 @@ export function About() {
                   ref={mainImageRef}
                   src="https://images.unsplash.com/photo-1629909615184-74f495363b67?auto=format&fit=crop&w=1200&q=80"
                   alt="Lead dental surgeon performing precision treatment in Dentora's modern sterile clinic"
+                  width="1200"
+                  height="1500"
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-center will-change-transform"
                 />
 
@@ -191,8 +194,11 @@ export function About() {
                 <div className="relative aspect-square overflow-hidden rounded-[20px]">
                   <img
                     src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=80"
-                    alt="Happy Dentora patient sharing a radiant natural smile after personalized cosmetic dental treatment"
+                    alt="Happy patient sharing a radiant natural smile after personalized dental treatment"
+                    width="800"
+                    height="800"
                     loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-108"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent" />

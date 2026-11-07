@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- Primary SEO Metadata -->
-    <title>Premium Dental Care | Dentora Dental Clinic</title>
-    <meta name="title" content="Premium Dental Care | Dentora Dental Clinic" />
-    <meta name="description" content="Discover personalized dental care, modern treatments, and confident smiles with our experienced dental team." />
+    <title>Premium Dental Clinic | Dentora Dental Clinic</title>
+    <meta name="title" content="Premium Dental Clinic | Dentora Dental Clinic" />
+    <meta name="description" content="Explore personalized dental care, modern dental treatments, and patient-focused services at Dentora." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://dentora-clinic.example.com/" />
     <meta name="theme-color" content="#24AEC5" />
     <meta name="color-scheme" content="light" />
 
@@ -16,21 +18,74 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Premium Dental Care | Dentora Dental Clinic" />
-    <meta property="og:description" content="Discover personalized dental care, modern treatments, and confident smiles with our experienced dental team." />
+    <meta property="og:title" content="Premium Dental Clinic | Dentora Dental Clinic" />
+    <meta property="og:description" content="Explore personalized dental care, modern dental treatments, and patient-focused services at Dentora." />
+    <meta property="og:url" content="https://dentora-clinic.example.com/" />
     <meta property="og:image" content="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80" />
     <meta property="og:site_name" content="Dentora Dental Clinic" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Premium Dental Care | Dentora Dental Clinic" />
-    <meta name="twitter:description" content="Discover personalized dental care, modern treatments, and confident smiles with our experienced dental team." />
+    <meta name="twitter:title" content="Premium Dental Clinic | Dentora Dental Clinic" />
+    <meta name="twitter:description" content="Explore personalized dental care, modern dental treatments, and patient-focused services at Dentora." />
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80" />
+    <meta name="twitter:site" content="@DentoraClinic" />
 
-    <!-- Preconnect & Google Fonts: Plus Jakarta Sans -->
+    <!-- Performance Preconnect & Preloads (Core Web Vitals - LCP Optimization) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link
+      rel="preload"
+      as="image"
+      href="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=2000&q=85"
+      fetchpriority="high"
+    />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+
+    <!-- Static Fallback JSON-LD for Search Crawlers without JS Execution -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://dentora-clinic.example.com/#website",
+          "url": "https://dentora-clinic.example.com/",
+          "name": "Dentora Dental Clinic",
+          "description": "Explore personalized dental care, modern dental treatments, and patient-focused services at Dentora.",
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": ["Dentist", "MedicalBusiness", "LocalBusiness"],
+          "@id": "https://dentora-clinic.example.com/#dentist",
+          "name": "Dentora",
+          "legalName": "Dentora Dental Care LLC",
+          "url": "https://dentora-clinic.example.com/",
+          "telephone": "+1-800-456-7890",
+          "email": "concierge@dentoraclinic.com",
+          "priceRange": "$$",
+          "currenciesAccepted": "USD",
+          "paymentAccepted": "Cash, Credit Card, Debit Card, CareCredit, Dental Insurance",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "450 Lexington Avenue, Suite 1800",
+            "addressLocality": "New York",
+            "addressRegion": "NY",
+            "postalCode": "10017",
+            "addressCountry": "US"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 40.7527,
+            "longitude": -73.9772
+          },
+          "isAcceptingNewPatients": true
+        }
+      ]
+    }
+    </script>
   </head>
   <body class="bg-white text-dark font-sans antialiased selection:bg-cyan selection:text-white min-h-screen overflow-x-hidden">
     <div id="root"></div>

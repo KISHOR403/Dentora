@@ -24,7 +24,10 @@ export function BlogCard({ post }) {
           <img
             src={post.image}
             alt={post.imageAlt || post.title}
+            width="600"
+            height="338"
             loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108"
           />
 
@@ -71,9 +74,12 @@ export function BlogCard({ post }) {
             <div className="flex items-center gap-2.5 min-w-0">
               <img
                 src={post.author.avatar}
-                alt={post.author.name}
-                className="w-8 h-8 rounded-full object-cover border border-neutral-200"
+                alt={`Avatar of ${post.author.name}`}
+                width="32"
+                height="32"
                 loading="lazy"
+                decoding="async"
+                className="w-8 h-8 rounded-full object-cover border border-neutral-200"
               />
               <div className="min-w-0">
                 <span className="text-xs font-bold text-dark block leading-none truncate">

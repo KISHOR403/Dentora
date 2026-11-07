@@ -72,8 +72,11 @@ export function Hero() {
           ref={imageRef}
           src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=2000&q=85"
           alt="Modern luxury dental treatment suite with advanced ergonomic patient chair and architectural lighting"
+          width="2000"
+          height="1333"
           fetchPriority="high"
           loading="eager"
+          decoding="sync"
           className="hero-bg-image w-full h-[125%] -top-[10%] object-cover object-center lg:object-[center_right] will-change-transform"
         />
 
@@ -192,7 +195,10 @@ export function Hero() {
                 <img
                   src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=600&q=80"
                   alt="Modern dental diagnostic suite"
+                  width="320"
+                  height="176"
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-108"
                 />
                 <div className="absolute top-2.5 left-2.5">
@@ -232,7 +238,11 @@ export function Hero() {
                     <img
                       key={i}
                       src={src}
-                      alt={`Verified Dentora patient ${i + 1}`}
+                      alt={`Verified patient avatar ${i + 1}`}
+                      width="36"
+                      height="36"
+                      loading="lazy"
+                      decoding="async"
                       className="w-9 h-9 rounded-full object-cover border-2 border-white shadow-sm ring-1 ring-black/5"
                     />
                   ))}

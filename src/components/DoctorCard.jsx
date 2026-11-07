@@ -19,7 +19,10 @@ export function DoctorCard({ doctor, onViewProfile }) {
         <img
           src={doctor.image}
           alt={`Portrait of ${doctor.name}, ${doctor.specialization} at Dentora`}
+          width="400"
+          height="533"
           loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-108"
         />
 

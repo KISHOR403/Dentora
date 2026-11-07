@@ -130,7 +130,10 @@ function ServiceCard({ service, onSelect }) {
           <img
             src={service.image}
             alt={service.alt}
+            width="800"
+            height="600"
             loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent pointer-events-none" />
@@ -212,7 +215,10 @@ function ServiceCard({ service, onSelect }) {
         <img
           src={service.image}
           alt={service.alt}
+          width="1000"
+          height="600"
           loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-108"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent pointer-events-none" />

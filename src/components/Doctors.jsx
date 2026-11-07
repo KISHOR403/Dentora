@@ -331,7 +331,11 @@ export function Doctors() {
                   <div className="sm:col-span-5 relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[3/4] bg-neutral-100 shadow-md">
                     <img
                       src={selectedDoctor.image}
-                      alt={`Portrait of ${selectedDoctor.name}`}
+                      alt={`Portrait of ${selectedDoctor.name}, ${selectedDoctor.specialization}`}
+                      width="400"
+                      height="533"
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover object-top"
                     />
                     <div className="absolute top-3 left-3">

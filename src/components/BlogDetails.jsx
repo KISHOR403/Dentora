@@ -11,6 +11,8 @@ import {
   ShieldCheck,
   CalendarCheck,
   ArrowRight,
+  ChevronRight,
+  Home,
 } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
@@ -18,6 +20,8 @@ import { Badge } from '@/components/ui/Badge';
 import { ToothIcon } from '@/assets/icons';
 import { BLOG_POSTS } from '@/data/blogData';
 import { LUXURY_EASE, fadeInUp } from '@/utils/animations';
+import { SEO } from '@/components/common/SEO';
+import { SEO_CONFIG, getArticleSchema, getBreadcrumbSchema } from '@/config/seoConfig';
 
 export function BlogDetails() {
   const { slug } = useParams();
@@ -33,6 +37,11 @@ export function BlogDetails() {
   if (!post) {
     return (
       <div className="min-h-screen bg-white text-dark flex items-center justify-center p-6">
+        <SEO
+          title={`Article Not Found | ${SEO_CONFIG.clinicName} Dental Clinic`}
+          description="The requested dental article could not be found."
+          noindex={true}
+        />
         <div className="text-center space-y-4 max-w-md">
           <div className="w-16 h-16 rounded-2xl bg-soft-cyan text-cyan mx-auto flex items-center justify-center">
             <ToothIcon className="w-8 h-8" />
@@ -51,23 +60,58 @@ export function BlogDetails() {
     );
   }
 
+  // Generate Schemas for this specific article
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      getArticleSchema(post),
+      getBreadcrumbSchema([
+        { name: 'Home', url: '/' },
+        { name: 'Dental Insights', url: '/#blog' },
+        { name: post.title, url: `/blog/${post.slug}` },
+      ]),
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-white text-dark font-sans selection:bg-cyan selection:text-white pt-24 pb-20">
+      {/* Route-Specific SEO & Structured Data */}
+      <SEO
+        title={`${post.title} | ${SEO_CONFIG.clinicName} Dental Clinic`}
+        description={post.description}
+        canonical={`/blog/${post.slug}`}
+        ogImage={post.image}
+        ogType="article"
+        structuredData={structuredData}
+      />
+
       {/* Top Breadcrumb & Navigation Header */}
       <div className="border-b border-neutral-100 bg-white/80 backdrop-blur-md sticky top-0 z-30 py-3.5">
-        <Container size="default" className="flex items-center justify-between">
-          <Link
-            to="/#blog"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-700 hover:text-cyan transition-colors group"
-          >
-            <div className="w-8 h-8 rounded-full bg-light-grey text-dark group-hover:bg-cyan group-hover:text-white flex items-center justify-center transition-all">
-              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
-            </div>
-            <span>Back to Articles</span>
-          </Link>
+        <Container size="default" className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          {/* Semantic Breadcrumbs with microdata navigation */}
+          <nav aria-label="Breadcrumb" className="flex items-center text-xs text-neutral-500 overflow-x-auto py-1">
+            <ol className="flex items-center gap-1.5 whitespace-nowrap">
+              <li className="flex items-center gap-1.5">
+                <Link to="/" className="hover:text-cyan transition-colors flex items-center gap-1">
+                  <Home className="w-3.5 h-3.5 text-neutral-400" />
+                  <span>Home</span>
+                </Link>
+                <ChevronRight className="w-3.5 h-3.5 text-neutral-300" />
+              </li>
+              <li className="flex items-center gap-1.5">
+                <Link to="/#blog" className="hover:text-cyan transition-colors">
+                  Dental Insights
+                </Link>
+                <ChevronRight className="w-3.5 h-3.5 text-neutral-300" />
+              </li>
+              <li aria-current="page" className="font-semibold text-dark truncate max-w-[200px] sm:max-w-[320px]">
+                {post.title}
+              </li>
+            </ol>
+          </nav>
 
-          <div className="flex items-center gap-2 text-xs text-neutral-400">
-            <span>{post.category}</span>
+          <div className="flex items-center gap-2 text-xs text-neutral-400 shrink-0">
+            <span className="font-medium text-cyan">{post.category}</span>
             <span>•</span>
             <span>{post.readingTime}</span>
           </div>
@@ -102,7 +146,11 @@ export function BlogDetails() {
               <div className="flex items-center gap-3">
                 <img
                   src={post.author.avatar}
-                  alt={post.author.name}
+                  alt={`Portrait of ${post.author.name}, ${post.author.role}`}
+                  width="48"
+                  height="48"
+                  loading="lazy"
+                  decoding="async"
                   className="w-12 h-12 rounded-full object-cover border-2 border-white shadow-sm"
                 />
                 <div>
@@ -127,11 +175,15 @@ export function BlogDetails() {
               </div>
             </div>
 
-            {/* Featured Image */}
+            {/* Featured Image with explicit dimensions and aspect ratio */}
             <div className="w-full aspect-[16/9] max-h-[500px] rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-2xl bg-neutral-100 relative">
               <img
                 src={post.image}
                 alt={post.imageAlt || post.title}
+                width="1200"
+                height="675"
+                loading="eager"
+                decoding="async"
                 className="w-full h-full object-cover object-center"
               />
             </div>

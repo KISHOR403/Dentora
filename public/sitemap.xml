@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Dentora Dental Clinic - XML Sitemap
+  
+  IMPORTANT DEPLOYMENT NOTICE:
+  Replace all occurrences of "https://dentora-clinic.example.com" with your verified live production domain.
+  Only canonical, publicly accessible URLs are included.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- Primary Homepage & Core Clinic Landing -->
+  <url>
+    <loc>https://dentora-clinic.example.com/</loc>
+    <lastmod>2026-11-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Dental Insights: Article 1 -->
+  <url>
+    <loc>https://dentora-clinic.example.com/blog/everyday-habits-healthy-smile</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Dental Insights: Article 2 -->
+  <url>
+    <loc>https://dentora-clinic.example.com/blog/is-professional-teeth-whitening-worth-it</loc>
+    <lastmod>2026-10-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Dental Insights: Article 3 -->
+  <url>
+    <loc>https://dentora-clinic.example.com/blog/what-to-expect-first-dental-visit</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

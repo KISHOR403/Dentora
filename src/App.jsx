@@ -10,6 +10,8 @@ import { Testimonials } from '@/components/Testimonials';
 import { Blog } from '@/components/Blog';
 import { Appointment } from '@/components/Appointment';
 import { Footer } from '@/components/Footer';
+import { SEO } from '@/components/common/SEO';
+import { SEO_CONFIG, getWebSiteSchema, getDentistSchema } from '@/config/seoConfig';
 import { Loader2 } from 'lucide-react';
 
 // Code-split article detail route for high-performance initial page load
@@ -26,6 +28,18 @@ function PageLoader() {
 function HomePage() {
   const location = useLocation();
 
+  // Determine section-specific SEO based on URL hash
+  const currentHash = location.hash ? location.hash.replace('#', '') : '';
+  const sectionMeta = SEO_CONFIG.routes[currentHash] || SEO_CONFIG.routes.home;
+
+  const homeStructuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      getWebSiteSchema(),
+      getDentistSchema(),
+    ],
+  };
+
   // Handle smooth scroll when navigating to hash anchors
   useEffect(() => {
     if (location.hash) {
@@ -41,6 +55,14 @@ function HomePage() {
 
   return (
     <main className="flex-1">
+      {/* Route-Specific SEO & Structured Data */}
+      <SEO
+        title={sectionMeta.title}
+        description={sectionMeta.description}
+        canonical={sectionMeta.path}
+        structuredData={homeStructuredData}
+      />
+
       {/* 2. Full-Width Cinematic Hero Section */}
       <Hero />
 

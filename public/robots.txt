@@ -1,0 +1,16 @@
+# ==============================================================================
+# Dentora Dental Clinic - Robots Configuration
+#
+# IMPORTANT FOR DEPLOYMENT:
+# Replace "https://dentora-clinic.example.com" with your live production domain.
+# ==============================================================================
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*?*preview=true
+
+# Host & Sitemap Directives
+Host: https://dentora-clinic.example.com
+Sitemap: https://dentora-clinic.example.com/sitemap.xml

@@ -69,9 +69,12 @@ export function TestimonialCard({ testimonial, isCyan = false }) {
         <div className="flex items-center gap-3 min-w-0">
           <img
             src={testimonial.avatar}
-            alt={`Patient ${testimonial.patient}`}
-            className="w-11 h-11 rounded-full object-cover border-2 border-white shadow-sm shrink-0"
+            alt={`Portrait of patient ${testimonial.patient}`}
+            width="44"
+            height="44"
             loading="lazy"
+            decoding="async"
+            className="w-11 h-11 rounded-full object-cover border-2 border-white shadow-sm shrink-0"
           />
           <div className="min-w-0">
             <h4

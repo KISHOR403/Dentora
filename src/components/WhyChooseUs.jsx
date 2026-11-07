@@ -318,7 +318,10 @@ export function WhyChooseUs() {
                   ref={imageRef}
                   src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80"
                   alt="Senior dental specialist reviewing patient 3D digital records in sterile consultation suite"
+                  width="1200"
+                  height="1500"
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-center will-change-transform"
                 />
 
@@ -350,7 +353,10 @@ export function WhyChooseUs() {
                   <img
                     src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80"
                     alt="Attentive dental hygienist gently treating comfortable patient in modern dental chair"
+                    width="800"
+                    height="800"
                     loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-108"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-dark/60 via-transparent to-transparent" />
