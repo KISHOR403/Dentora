@@ -7,22 +7,22 @@
  * These details power the site content as well as Schema.org structured data (LocalBusiness/Dentist).
  */
 export const CLINIC_INFO = {
-  name: 'Dentora',
-  legalName: 'Dentora Dental Care LLC',
+  name: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_CLINIC_NAME) || 'Dentora',
+  legalName: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_CLINIC_LEGAL_NAME) || 'Dentora Dental Care LLC',
   tagline: 'Aesthetic & Advanced Dental Care',
   description: 'Precision dentistry meets modern luxury. Delivering painless, bespoke smile transformations with state-of-the-art digital technology.',
-  phone: '+1 (800) 456-7890',
-  phoneClean: '+18004567890',
-  emergencyPhone: '+1 (800) 911-DENT',
-  emergencyPhoneClean: '+18009113368',
-  email: 'concierge@dentoraclinic.com',
-  website: 'https://dentora-clinic.example.com', // Replace with production domain
-  logoUrl: 'https://dentora-clinic.example.com/logo.png', // Replace with production logo path
+  phone: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_CLINIC_PHONE) || '+1 (800) 456-7890',
+  phoneClean: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_CLINIC_PHONE_CLEAN) || '+18004567890',
+  emergencyPhone: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_CLINIC_EMERGENCY_PHONE) || '+1 (800) 911-DENT',
+  emergencyPhoneClean: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_CLINIC_EMERGENCY_CLEAN) || '+18009113368',
+  email: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_CLINIC_EMAIL) || 'concierge@dentoraclinic.com',
+  website: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_SITE_URL) || 'https://dentora-clinic.example.com',
+  logoUrl: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_CLINIC_LOGO_URL) || 'https://dentora-clinic.example.com/logo.png',
   address: {
-    street: '450 Lexington Avenue, Suite 1800',
-    city: 'New York',
-    state: 'NY',
-    zip: '10017',
+    street: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_CLINIC_STREET) || '450 Lexington Avenue, Suite 1800',
+    city: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_CLINIC_CITY) || 'New York',
+    state: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_CLINIC_STATE) || 'NY',
+    zip: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_CLINIC_ZIP) || '10017',
     country: 'US',
     countryName: 'United States',
   },
@@ -31,8 +31,8 @@ export const CLINIC_INFO = {
     longitude: -73.9772,
   },
   // Map and profile links (Placeholders - update with real verified URLs)
-  googleMapsUrl: 'https://maps.google.com/?q=450+Lexington+Ave+New+York+NY+10017',
-  googleBusinessProfileUrl: 'https://business.google.com', // Placeholder for verified GBP
+  googleMapsUrl: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_GOOGLE_MAPS_URL) || 'https://maps.google.com/?q=450+Lexington+Ave+New+York+NY+10017',
+  googleBusinessProfileUrl: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_GOOGLE_BUSINESS_URL) || 'https://business.google.com',
   hours: [
     { days: 'Monday – Friday', hours: '8:00 AM – 7:00 PM', schemaDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '19:00' },
     { days: 'Saturday', hours: '9:00 AM – 4:00 PM', schemaDays: ['Saturday'], opens: '09:00', closes: '16:00' },

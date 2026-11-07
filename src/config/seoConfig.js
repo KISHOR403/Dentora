@@ -11,13 +11,13 @@ import { CLINIC_INFO } from '../constants/clinic.js';
 export const SEO_CONFIG = {
   clinicName: CLINIC_INFO.name,
   legalName: CLINIC_INFO.legalName,
-  siteUrl: CLINIC_INFO.website || 'https://dentora-clinic.example.com',
+  siteUrl: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_SITE_URL) || CLINIC_INFO.website || 'https://dentora-clinic.example.com',
   defaultTitle: `Premium Dental Clinic | ${CLINIC_INFO.name} Dental Clinic`,
   titleTemplate: `%s | ${CLINIC_INFO.name} Dental Clinic`,
   defaultDescription: `Explore personalized dental care, modern dental treatments, and patient-focused services at ${CLINIC_INFO.name}.`,
-  defaultOgImage: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80',
+  defaultOgImage: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_OG_IMAGE) || 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80',
   themeColor: '#24AEC5',
-  twitterHandle: '@DentoraClinic',
+  twitterHandle: (typeof import.meta !== 'undefined' && import.meta.env?.VITE_TWITTER_HANDLE) || '@DentoraClinic',
   locale: 'en_US',
 
   // Section & Route Specific Metadata
