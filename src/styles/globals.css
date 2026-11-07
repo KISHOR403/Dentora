@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand Color Tokens */
+    --color-cyan: #24AEC5;
+    --color-cyan-hover: #1D92A6;
+    --color-soft-cyan: #DDF5F7;
+    --color-light-grey: #F5F5F5;
+    --color-black: #111111;
+    --color-white: #FFFFFF;
+
+    /* Semantic Surface & Border Tokens */
+    --surface-primary: #FFFFFF;
+    --surface-secondary: #F5F5F5;
+    --surface-accent: #DDF5F7;
+    --border-light: rgba(17, 17, 17, 0.08);
+    --border-cyan: rgba(36, 174, 197, 0.25);
+
+    /* Text Tokens */
+    --text-primary: #111111;
+    --text-secondary: #4B5563;
+    --text-muted: #6B7280;
+    --text-inverse: #FFFFFF;
+
+    /* Easing Tokens */
+    --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--surface-primary);
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Custom Clean Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F5F5F5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #C7EFF2;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #24AEC5;
+  }
+
+  /* Focus visible accessibility outline */
+  :focus-visible {
+    outline: 2px solid #24AEC5;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Premium Card Styles */
+  .card-premium {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(17, 17, 17, 0.06);
+    border-radius: 1.25rem;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .card-premium:hover {
+    transform: translateY(-3px);
+    border-color: rgba(36, 174, 197, 0.3);
+    box-shadow: 0 20px 40px -15px rgba(36, 174, 197, 0.12);
+  }
+
+  /* Subtle Glassmorphic Panel */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+
+  .glass-panel-dark {
+    background: rgba(17, 17, 17, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Soft Cyan Glow Accent */
+  .cyan-glow {
+    box-shadow: 0 0 35px -5px rgba(36, 174, 197, 0.28);
+  }
+
+  /* Editorial Tag / Eyebrow */
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #24AEC5;
+  }
+}
