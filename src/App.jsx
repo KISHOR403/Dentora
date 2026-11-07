@@ -4,6 +4,7 @@ import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
 import { Services } from '@/components/Services';
 import { WhyChooseUs } from '@/components/WhyChooseUs';
+import { Doctors } from '@/components/Doctors';
 import { Container } from '@/components/ui/Container';
 import { ToothIcon } from '@/assets/icons';
 import { CLINIC_INFO } from '@/constants/clinic';
@@ -27,7 +28,9 @@ export function App() {
 
         {/* 5. Why Choose Us Section */}
         <WhyChooseUs />
-        <div id="doctors" className="scroll-mt-24" />
+
+        {/* 6. Meet Our Expert Doctors Section */}
+        <Doctors />
 
         {/* Quick Contact & Working Hours Bar for `#contact` anchor */}
         <section id="contact" className="scroll-mt-24 bg-light-grey border-t border-b border-black/5 py-12">
