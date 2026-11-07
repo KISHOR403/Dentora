@@ -183,7 +183,7 @@ export function Navbar() {
               rightIcon={<Calendar className="w-3.5 h-3.5" />}
               className="shadow-cyan-glow hover:shadow-cyan-glow-lg text-xs font-semibold px-4 py-2"
               onClick={() => {
-                const el = document.getElementById('contact');
+                const el = document.getElementById('appointment') || document.getElementById('contact');
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
             >
@@ -199,7 +199,7 @@ export function Navbar() {
               pill
               className="sm:hidden text-xs px-3 py-1.5 h-8 font-semibold"
               onClick={() => {
-                const el = document.getElementById('contact');
+                const el = document.getElementById('appointment') || document.getElementById('contact');
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
             >
@@ -285,8 +285,8 @@ export function Navbar() {
                   pill
                   className="w-full justify-center shadow-cyan-glow"
                   leftIcon={<Calendar className="w-4 h-4" />}
-                  onClick={() => {
-                    handleLinkClick('#contact');
+                  onClick={(e) => {
+                    handleLinkClick(e, '#appointment');
                   }}
                 >
                   Book Appointment

@@ -9,6 +9,7 @@ import { Doctors } from '@/components/Doctors';
 import { Testimonials } from '@/components/Testimonials';
 import { Blog } from '@/components/Blog';
 import { BlogDetails } from '@/components/BlogDetails';
+import { Appointment } from '@/components/Appointment';
 import { Container } from '@/components/ui/Container';
 import { ToothIcon } from '@/assets/icons';
 import { CLINIC_INFO } from '@/constants/clinic';
@@ -53,47 +54,8 @@ function HomePage() {
       {/* 8. Dental Insights & Articles Section */}
       <Blog />
 
-      {/* Quick Contact & Working Hours Bar for `#contact` anchor */}
-      <section id="contact" className="scroll-mt-24 bg-light-grey border-t border-b border-black/5 py-12">
-        <Container size="wide">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-neutral-200/60 shadow-subtle">
-              <div className="w-12 h-12 rounded-2xl bg-soft-cyan text-cyan flex items-center justify-center shrink-0">
-                <Phone className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="text-xs font-semibold text-neutral-400 uppercase tracking-wider block">Phone & Emergency</span>
-                <a href={`tel:${CLINIC_INFO.phone}`} className="text-base font-bold text-dark hover:text-cyan transition-colors">
-                  {CLINIC_INFO.phone}
-                </a>
-                <p className="text-xs text-neutral-500">24/7 Dental Emergency Care</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-neutral-200/60 shadow-subtle">
-              <div className="w-12 h-12 rounded-2xl bg-soft-cyan text-cyan flex items-center justify-center shrink-0">
-                <MapPin className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="text-xs font-semibold text-neutral-400 uppercase tracking-wider block">Clinic Location</span>
-                <p className="text-sm font-bold text-dark">{CLINIC_INFO.address.street}</p>
-                <p className="text-xs text-neutral-500">{CLINIC_INFO.address.city}, {CLINIC_INFO.address.state} {CLINIC_INFO.address.zip}</p>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-neutral-200/60 shadow-subtle">
-              <div className="w-12 h-12 rounded-2xl bg-soft-cyan text-cyan flex items-center justify-center shrink-0">
-                <Clock className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="text-xs font-semibold text-neutral-400 uppercase tracking-wider block">Working Hours</span>
-                <p className="text-sm font-bold text-dark">Mon – Fri: 8:00 AM – 7:00 PM</p>
-                <p className="text-xs text-neutral-500">Sat: 9:00 AM – 4:00 PM</p>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* 9. Appointment Booking & Contact Section */}
+      <Appointment />
     </main>
   );
 }

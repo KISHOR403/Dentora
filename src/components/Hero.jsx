@@ -53,7 +53,7 @@ export function Hero() {
   }, heroRef);
 
   const scrollToSection = (id) => {
-    const el = document.getElementById(id);
+    const el = document.getElementById(id) || document.getElementById('appointment');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
@@ -135,7 +135,7 @@ export function Hero() {
                 pill
                 rightIcon={<Calendar className="w-4 h-4" />}
                 className="shadow-cyan-glow hover:shadow-cyan-glow-lg text-sm sm:text-base font-semibold px-7 py-4"
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection('appointment')}
               >
                 Book Your Appointment
               </Button>
