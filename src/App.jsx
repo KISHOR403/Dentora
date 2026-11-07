@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
+import { About } from '@/components/About';
 import { Container } from '@/components/ui/Container';
 import { ToothIcon } from '@/assets/icons';
 import { CLINIC_INFO } from '@/constants/clinic';
@@ -16,8 +17,10 @@ export function App() {
       <main className="flex-1">
         <Hero />
 
+        {/* 3. About Our Clinic Section */}
+        <About />
+
         {/* Anchor targets for smooth navbar navigation (Sections to be built in subsequent phases) */}
-        <div id="about" className="scroll-mt-24" />
         <div id="services" className="scroll-mt-24" />
         <div id="doctors" className="scroll-mt-24" />
 
