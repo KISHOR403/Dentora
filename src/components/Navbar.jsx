@@ -40,8 +40,25 @@ export function Navbar() {
       }
     };
 
+    const sectionIds = ['home', 'about', 'services', 'doctors', 'contact'];
+    const handleScrollSpy = () => {
+      const scrollPosition = window.scrollY + 200;
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const id = sectionIds[i];
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollPosition) {
+          setActiveSection(id);
+          break;
+        }
+      }
+    };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScrollSpy, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScrollSpy);
+    };
   }, []);
 
   // Lock body scroll when mobile menu is open

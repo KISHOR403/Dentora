@@ -118,7 +118,7 @@ export function About() {
   }, sectionRef);
 
   const scrollToContact = () => {
-    const el = document.getElementById('contact');
+    const el = document.getElementById('appointment') || document.getElementById('contact');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
@@ -186,7 +186,7 @@ export function About() {
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.8, delay: 0.25, ease: LUXURY_EASE }}
                 whileHover={{ y: -6, transition: { duration: 0.3 } }}
-                className="absolute -bottom-8 -right-3 sm:-bottom-10 sm:-right-8 w-44 sm:w-56 md:w-64 rounded-3xl overflow-hidden border-4 border-white shadow-2xl bg-white group cursor-pointer"
+                className="absolute -bottom-6 -right-2 sm:-bottom-10 sm:-right-8 w-40 sm:w-56 md:w-64 rounded-3xl overflow-hidden border-4 border-white shadow-2xl bg-white group cursor-pointer"
               >
                 <div className="relative aspect-square overflow-hidden rounded-[20px]">
                   <img
@@ -217,7 +217,7 @@ export function About() {
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.7, delay: 0.35, ease: LUXURY_EASE }}
                 whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                className="absolute -top-6 -left-3 sm:-top-8 sm:-left-8 bg-white/95 backdrop-blur-xl border border-black/8 rounded-2xl p-4 sm:p-4.5 shadow-card-hover max-w-[210px] sm:max-w-[230px]"
+                className="absolute -top-4 -left-2 sm:-top-8 sm:-left-8 bg-white/95 backdrop-blur-xl border border-black/8 rounded-2xl p-3.5 sm:p-4.5 shadow-card-hover max-w-[200px] sm:max-w-[230px]"
               >
                 <div className="flex items-center gap-3">
                   <div className="w-11 h-11 rounded-xl bg-soft-cyan text-cyan flex items-center justify-center shrink-0 shadow-sm">

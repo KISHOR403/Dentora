@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
@@ -8,13 +8,20 @@ import { WhyChooseUs } from '@/components/WhyChooseUs';
 import { Doctors } from '@/components/Doctors';
 import { Testimonials } from '@/components/Testimonials';
 import { Blog } from '@/components/Blog';
-import { BlogDetails } from '@/components/BlogDetails';
 import { Appointment } from '@/components/Appointment';
 import { Footer } from '@/components/Footer';
-import { Container } from '@/components/ui/Container';
-import { ToothIcon } from '@/assets/icons';
-import { CLINIC_INFO } from '@/constants/clinic';
-import { CheckCircle2, Phone, MapPin, Clock } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
+
+// Code-split article detail route for high-performance initial page load
+const BlogDetails = lazy(() => import('@/components/BlogDetails'));
+
+function PageLoader() {
+  return (
+    <div className="min-h-[60vh] flex items-center justify-center">
+      <Loader2 className="w-8 h-8 text-cyan animate-spin" />
+    </div>
+  );
+}
 
 function HomePage() {
   const location = useLocation();
@@ -71,7 +78,14 @@ export function App() {
         {/* Route Definitions */}
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/blog/:slug" element={<BlogDetails />} />
+          <Route
+            path="/blog/:slug"
+            element={
+              <Suspense fallback={<PageLoader />}>
+                <BlogDetails />
+              </Suspense>
+            }
+          />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
 
