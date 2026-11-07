@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Calendar,
@@ -25,6 +26,7 @@ const NAV_LINKS = [
 ];
 
 export function Navbar() {
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -54,9 +56,22 @@ export function Navbar() {
     };
   }, [mobileMenuOpen]);
 
-  const handleLinkClick = (href) => {
-    setActiveSection(href.replace('#', ''));
+  const handleLinkClick = (e, href) => {
+    if (e && e.preventDefault) e.preventDefault();
+    const targetId = href.replace('#', '');
+    setActiveSection(targetId);
     setMobileMenuOpen(false);
+
+    if (window.location.pathname !== '/') {
+      navigate('/' + href);
+      setTimeout(() => {
+        const el = document.getElementById(targetId);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      const el = document.getElementById(targetId);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -82,7 +97,7 @@ export function Navbar() {
           {/* Logo */}
           <a
             href="#home"
-            onClick={() => handleLinkClick('#home')}
+            onClick={(e) => handleLinkClick(e, '#home')}
             className="flex items-center gap-2.5 sm:gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan rounded-full"
             aria-label={`${CLINIC_INFO.name} Dental Clinic — Return to top`}
           >
@@ -118,7 +133,7 @@ export function Navbar() {
                 <a
                   key={link.label}
                   href={link.href}
-                  onClick={() => handleLinkClick(link.href)}
+                  onClick={(e) => handleLinkClick(e, link.href)}
                   className={cn(
                     'relative px-3.5 py-1.5 text-sm font-medium rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan',
                     isScrolled
@@ -253,7 +268,7 @@ export function Navbar() {
                     initial={{ x: -15, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.08 + idx * 0.04 }}
-                    onClick={() => handleLinkClick(link.href)}
+                    onClick={(e) => handleLinkClick(e, link.href)}
                     className="flex items-center justify-between px-4 py-3 rounded-2xl text-base font-semibold text-neutral-800 hover:text-cyan hover:bg-soft-cyan/40 transition-colors"
                   >
                     <span>{link.label}</span>
