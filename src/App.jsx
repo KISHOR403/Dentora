@@ -10,6 +10,7 @@ import { Testimonials } from '@/components/Testimonials';
 import { Blog } from '@/components/Blog';
 import { BlogDetails } from '@/components/BlogDetails';
 import { Appointment } from '@/components/Appointment';
+import { Footer } from '@/components/Footer';
 import { Container } from '@/components/ui/Container';
 import { ToothIcon } from '@/assets/icons';
 import { CLINIC_INFO } from '@/constants/clinic';
@@ -74,38 +75,8 @@ export function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
 
-        {/* Footer */}
-        <footer className="bg-dark text-white py-12 border-t border-neutral-800">
-          <Container size="wide">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-2xl bg-cyan flex items-center justify-center text-white shadow-cyan-glow">
-                  <ToothIcon className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-lg font-bold tracking-tight">{CLINIC_INFO.name} Dental Clinic</span>
-                  <p className="text-xs text-neutral-400">Precision Aesthetic & Advanced Oral Health</p>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-6 text-xs text-neutral-400">
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-cyan" /> ADA Accredited
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-cyan" /> 3D Guided Surgery
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-cyan" /> Pain-Free Technology
-                </span>
-              </div>
-
-              <p className="text-xs text-neutral-500">
-                © {new Date().getFullYear()} {CLINIC_INFO.name}. All rights reserved.
-              </p>
-            </div>
-          </Container>
-        </footer>
+        {/* 10. Premium Responsive Footer with Newsletter */}
+        <Footer />
       </div>
     </BrowserRouter>
   );
