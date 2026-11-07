@@ -5,6 +5,7 @@ import { About } from '@/components/About';
 import { Services } from '@/components/Services';
 import { WhyChooseUs } from '@/components/WhyChooseUs';
 import { Doctors } from '@/components/Doctors';
+import { Testimonials } from '@/components/Testimonials';
 import { Container } from '@/components/ui/Container';
 import { ToothIcon } from '@/assets/icons';
 import { CLINIC_INFO } from '@/constants/clinic';
@@ -31,6 +32,9 @@ export function App() {
 
         {/* 6. Meet Our Expert Doctors Section */}
         <Doctors />
+
+        {/* 7. Patient Stories & Testimonials Carousel */}
+        <Testimonials />
 
         {/* Quick Contact & Working Hours Bar for `#contact` anchor */}
         <section id="contact" className="scroll-mt-24 bg-light-grey border-t border-b border-black/5 py-12">
