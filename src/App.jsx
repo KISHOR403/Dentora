@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
+import { Services } from '@/components/Services';
 import { Container } from '@/components/ui/Container';
 import { ToothIcon } from '@/assets/icons';
 import { CLINIC_INFO } from '@/constants/clinic';
@@ -20,8 +21,8 @@ export function App() {
         {/* 3. About Our Clinic Section */}
         <About />
 
-        {/* Anchor targets for smooth navbar navigation (Sections to be built in subsequent phases) */}
-        <div id="services" className="scroll-mt-24" />
+        {/* 4. Complete Dental Services Section */}
+        <Services />
         <div id="doctors" className="scroll-mt-24" />
 
         {/* Quick Contact & Working Hours Bar for `#contact` anchor */}
